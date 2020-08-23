@@ -156,7 +156,7 @@ def patch(ctx, patches = None, patch_cmds = None, patch_cmds_win = None, patch_t
                      (cmd, st.stdout, st.stderr))
     else:
         for cmd in patch_cmds:
-            st = ctx.execute([bash_exe, "-c", cmd])
+            st = ctx.execute([bash_exe, "-c", cmd], timeout=7200)
             if st.return_code:
                 fail("Error applying patch command %s:\n%s%s" %
                      (cmd, st.stdout, st.stderr))

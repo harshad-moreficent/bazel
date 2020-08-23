@@ -93,7 +93,7 @@ def _get_auth(ctx, urls):
 
     return {}
 
-def _http_archive_impl(ctx):
+def _http_archive_impl2(ctx):
     """Implementation of the http_archive rule."""
     if not ctx.attr.url and not ctx.attr.urls:
         fail("At least one of url and urls must be provided")
@@ -333,8 +333,8 @@ following: `"zip"`, `"jar"`, `"war"`, `"tar"`, `"tar.gz"`, `"tgz"`,
     ),
 }
 
-http_archive = repository_rule(
-    implementation = _http_archive_impl,
+http_archive2 = repository_rule(
+    implementation = _http_archive_impl2,
     attrs = _http_archive_attrs,
     doc =
         """Downloads a Bazel repository as a compressed archive file, decompresses it,
